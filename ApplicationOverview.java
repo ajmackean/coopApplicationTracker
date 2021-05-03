@@ -1,11 +1,7 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ApplicationOverview {
-	
-	// find a way to create folders/directories to load the object into
-	
-	// needs a constructor that uses file i/o to check if there's a user file and load the 
-	// object array if it exists. 
+public class ApplicationOverview implements Serializable{
 	
 	// creates an object array of individual applications
 	private ArrayList <IndividualApplication> applications = new ArrayList();
@@ -22,25 +18,78 @@ public class ApplicationOverview {
 	
 	public void removeApplication() {
 		
+		int index = 1;
+		
+		int userSelection = 0;
+		
 		// method to quickly print info for user prompt
 		for (IndividualApplication number : applications) {
+			
+			System.out.println("Application number " + index + ": ");
+			index++;
 			number.displayApplication();
 		}
-		// need something like ask user which application they wanna remove
-		// applications.remove(index) where index = user selection - 1
+		
+		System.out.println("Which application would you like to modify?");
+		
+		// boolean sentinel value
+		boolean invalid = true;
+		
+		while (invalid) {
+			
+			if (MainDriver.input.hasNextInt()) {
+				userSelection = MainDriver.input.nextInt();
+				if (userSelection >= 1 && userSelection < applications.size()) {
+					applications.remove(userSelection - 1);
+				}
+				else {
+					System.out.println("Please make a valid selection");
+				}
+			} else {
+				System.out.println("Please make a valid selection");
+			}
+			
+		}
 		
 		
 	}
 	
 	public void modifyApplicationList() {
 		
+		int index = 1;
+		
+		int userSelection = 0;
+		
 		// method to quickly print info for user prompt
 		for (IndividualApplication number : applications) {
+			
+			System.out.println("Application number " + index + ": ");
+			index++;
 			number.displayApplication();
 		}
 		
-		// need to prompt user which application they want to change.
-		// applications.get(userSelection - 1).modifyApplication();
+		System.out.println("Which application would you like to modify?");
+		
+		// boolean sentinel value
+		boolean invalid = true;
+		
+		while (invalid) {
+			
+			if (MainDriver.input.hasNextInt()) {
+				userSelection = MainDriver.input.nextInt();
+				if (userSelection >= 1 && userSelection < applications.size()) {
+					applications.get(userSelection - 1).modifyApplication();
+				}
+				else {
+					System.out.println("Please make a valid selection");
+				}
+			} else {
+				System.out.println("Please make a valid selection");
+			}
+			
+		}
+	
+		
 		
 	}
 	
@@ -49,13 +98,6 @@ public class ApplicationOverview {
 		for (IndividualApplication number : applications) {
 			number.detailedInfo();
 		}
-		
-	}
-	
-	public void saveInfo() {
-		
-		// should be called on the menu selection to quit the program. Writes the object array to file
-		// make sure that the program outputs in the menu that it will not save until you quit
 		
 	}
 

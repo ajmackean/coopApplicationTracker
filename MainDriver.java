@@ -6,7 +6,7 @@ public class MainDriver {
 
 	public static void main(String[] args) {
 		
-		Menu mainLoop = new Menu();
+		Menu mainLoop = new Menu();	
 		
 		input.close();
 

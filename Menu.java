@@ -1,8 +1,13 @@
+import java.io.*;
+import java.util.ArrayList;
+
+// file i/o methods are written, just need to be implemented
 
 public class Menu {
 	
 	ApplicationOverview myApplications = new ApplicationOverview();
 	
+	// constructor method
 	public Menu() {
 		
 		System.out.println("============================================================");
@@ -75,7 +80,7 @@ public class Menu {
 					
 					break;
 				case 4:
-					myApplications.saveInfo();
+					// this option needs to write object file
 					invalid = false;
 					break;
 				default:
@@ -91,7 +96,46 @@ public class Menu {
 		
 		// lets the user know that the program was exited successfully.
 		System.out.println("Saving and exiting the program. ");
+
 	
 	}
 
+
+	
+	public void createFile() {
+		
+		try {
+			FileOutputStream fileOut = new FileOutputStream("object.ser");
+			ObjectOutputStream out = new ObjectOutputStream(fileOut);
+			out.writeObject(myApplications);
+			out.close();
+			fileOut.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void readFile() {
+		
+		try {
+			FileInputStream fileIn = new FileInputStream("object.ser");
+			ObjectInputStream in = new ObjectInputStream(fileIn);
+			this.myApplications = (ApplicationOverview)in.readObject();
+			in.close();
+			fileIn.close();
+			return;
+
+		} catch (IOException i) {
+			i.printStackTrace();
+			return;
+		} catch (ClassNotFoundException c) {
+			c.printStackTrace();
+			return;
+		}
+		
+
+	}
+	
+	
 }
