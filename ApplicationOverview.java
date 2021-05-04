@@ -18,78 +18,95 @@ public class ApplicationOverview implements Serializable{
 	
 	public void removeApplication() {
 		
-		int index = 1;
-		
-		int userSelection = 0;
-		
-		// method to quickly print info for user prompt
-		for (IndividualApplication number : applications) {
+		if (applications.size() == 0){
 			
-			System.out.println("Application number " + index + ": ");
-			index++;
-			number.displayApplication();
-		}
-		
-		System.out.println("Which application would you like to modify?");
-		
-		// boolean sentinel value
-		boolean invalid = true;
-		
-		while (invalid) {
+			System.out.println("You currently are not tracking any applications.");
 			
-			if (MainDriver.input.hasNextInt()) {
-				userSelection = MainDriver.input.nextInt();
-				if (userSelection >= 1 && userSelection < applications.size()) {
-					applications.remove(userSelection - 1);
-				}
-				else {
+		} else {
+			
+			int index = 1;
+			
+			int userSelection = 0;
+			
+			// method to quickly print info for user prompt
+			for (IndividualApplication number : applications) {
+				
+				System.out.println("Application number " + index + ": ");
+				index++;
+				number.displayApplication();
+			}
+			
+			System.out.println("Which application would you like to delete?");
+			
+			// boolean sentinel value
+			boolean invalid = true;
+			
+			while (invalid) {
+				
+				if (MainDriver.input.hasNextInt()) {
+					userSelection = MainDriver.input.nextInt() - 1;
+					
+					if (userSelection >= 0 && userSelection < applications.size()) {
+						applications.remove(userSelection);
+						invalid = false;
+					} else {
+						System.out.println("Please make a valid selection");
+
+					}
+								
+				}  else {
 					System.out.println("Please make a valid selection");
+					MainDriver.input.nextLine();
 				}
-			} else {
-				System.out.println("Please make a valid selection");
 			}
 			
 		}
-		
-		
+			
 	}
 	
 	public void modifyApplicationList() {
 		
-		int index = 1;
-		
-		int userSelection = 0;
-		
-		// method to quickly print info for user prompt
-		for (IndividualApplication number : applications) {
+		if (applications.size() == 0){
 			
-			System.out.println("Application number " + index + ": ");
-			index++;
-			number.displayApplication();
-		}
-		
-		System.out.println("Which application would you like to modify?");
-		
-		// boolean sentinel value
-		boolean invalid = true;
-		
-		while (invalid) {
+			System.out.println("You are not currently tracking any applications.");
 			
-			if (MainDriver.input.hasNextInt()) {
-				userSelection = MainDriver.input.nextInt();
-				if (userSelection >= 1 && userSelection < applications.size()) {
-					applications.get(userSelection - 1).modifyApplication();
-				}
-				else {
-					System.out.println("Please make a valid selection");
-				}
-			} else {
-				System.out.println("Please make a valid selection");
+		} else {
+			
+			int index = 1;
+			
+			int userSelection = 0;
+			
+			// method to quickly print info for user prompt
+			for (IndividualApplication number : applications) {
+				
+				System.out.println("Application number " + index + ": ");
+				index++;
+				number.displayApplication();
 			}
 			
-		}
-	
-		
+			System.out.println("Which application would you like to modify?");
+			
+			// boolean sentinel value
+			boolean invalid = true;
+			
+			while (invalid) {
+				
+				if (MainDriver.input.hasNextInt()) {
+					userSelection = MainDriver.input.nextInt() - 1;
+					if (userSelection >= 0 && userSelection < applications.size()) {
+						applications.get(userSelection).modifyApplication();
+					}
+					else {
+						System.out.println("Please make a valid selection");
+					}
+				} else {
+					System.out.println("Please make a valid selection");
+					MainDriver.input.nextLine();
+				}
+				
+			}
+				
+		}	
 		
 	}
 	

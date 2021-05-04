@@ -10,6 +10,8 @@ public class Menu {
 	// constructor method
 	public Menu() {
 		
+		readFile();
+		
 		System.out.println("============================================================");
 		System.out.println("Welcome to the Application Tracker. Please select an option.");
 		System.out.println("File will not be saved unless program is exited.");
@@ -81,6 +83,7 @@ public class Menu {
 					break;
 				case 4:
 					// this option needs to write object file
+					createFile();
 					invalid = false;
 					break;
 				default:
