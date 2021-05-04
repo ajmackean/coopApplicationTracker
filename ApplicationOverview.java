@@ -112,8 +112,22 @@ public class ApplicationOverview implements Serializable{
 	
 	public void printArray() {
 		
-		for (IndividualApplication number : applications) {
-			number.detailedInfo();
+		if (applications.size() == 0) {
+			
+			System.out.println("You're currently not tracking any applications.");
+			
+		}
+		
+		else {
+			
+			int counter = 1;
+			
+			for (IndividualApplication number : applications) {
+				System.out.println("Application number " + counter);
+				number.detailedInfo();
+				counter++;
+			}	
+			
 		}
 		
 	}

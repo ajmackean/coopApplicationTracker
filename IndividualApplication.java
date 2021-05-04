@@ -29,7 +29,7 @@ public class IndividualApplication implements Serializable {
 		
 		this.applicationStatus = MainDriver.input.nextLine();
 		
-		System.out.println("Organization: " + organization + "\nPostion: " + position + "\nInterview Status: " + interviewStatus + "\nApplication Status: " + applicationStatus);
+		System.out.println("Application successfully added");
 		
 	}
 	
@@ -100,11 +100,12 @@ public class IndividualApplication implements Serializable {
 	
 	public void detailedInfo() {
 		
-		System.out.println("===========================");
+		System.out.println("------------------");
 		System.out.println(organization);
 		System.out.println(position);
 		System.out.println(interviewStatus);
 		System.out.println(applicationStatus);
+		System.out.println("------------------");
 		
 	}
 	

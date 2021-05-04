@@ -15,14 +15,16 @@ public class Menu {
 		System.out.println("============================================================");
 		System.out.println("Welcome to the Application Tracker. Please select an option.");
 		System.out.println("File will not be saved unless program is exited.");
-		System.out.println("============================================================");
-		System.out.println("1. View current applications\n2. Add application \n3. Modify an application \n4. Quit");
-		System.out.println("============================================================");
+
 
 		// sentinel control boolean 
 		boolean invalid = true;
 		
 		while (invalid) {
+			
+			System.out.println("============================================================");
+			System.out.println("1. View current applications\n2. Add application \n3. Modify an application \n4. Quit");
+			System.out.println("============================================================");
 			
 			// checks for integer input
 			if (MainDriver.input.hasNextInt()) {
