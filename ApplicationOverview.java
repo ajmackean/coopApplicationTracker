@@ -95,6 +95,7 @@ public class ApplicationOverview implements Serializable{
 					userSelection = MainDriver.input.nextInt() - 1;
 					if (userSelection >= 0 && userSelection < applications.size()) {
 						applications.get(userSelection).modifyApplication();
+						invalid = false;
 					}
 					else {
 						System.out.println("Please make a valid selection");

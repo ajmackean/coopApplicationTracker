@@ -50,31 +50,26 @@ public class IndividualApplication implements Serializable {
 				switch (input) {
 				
 				case 1:
-					MainDriver.input.nextLine();
 					System.out.println("Please enter the new Organization name");
 					this.organization = MainDriver.input.nextLine();
 					invalid = false;
 					break;
 				case 2:
-					MainDriver.input.nextLine();
 					System.out.println("Please enter the new Position");
 					this.position = MainDriver.input.nextLine();
 					invalid = false;
 					break;
 				case 3:
-					MainDriver.input.nextLine();
 					System.out.println("Please enter the Interview Status");
 					this.interviewStatus = MainDriver.input.nextLine();
 					invalid = false;
 					break;
 				case 4:
-					MainDriver.input.nextLine();
 					System.out.println("Please enter the Application Status");
 					this.applicationStatus = MainDriver.input.nextLine();
 					invalid = false;
 					break;
 				default:
-					MainDriver.input.nextLine();
 					System.out.println("Please make a valid selection");
 					break;
 				
@@ -95,17 +90,18 @@ public class IndividualApplication implements Serializable {
 	public void displayApplication() {
 		
 		System.out.println(position + " at " + organization);
+		System.out.println("----------------------------------");
 		
 	}
 	
 	public void detailedInfo() {
 		
-		System.out.println("------------------");
+		System.out.println("----------------------------------");
 		System.out.println(organization);
 		System.out.println(position);
 		System.out.println(interviewStatus);
 		System.out.println(applicationStatus);
-		System.out.println("------------------");
+		System.out.println("----------------------------------");
 		
 	}
 	
